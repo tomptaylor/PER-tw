@@ -12,8 +12,8 @@ export default function Nav() {
   const [isOpen, setIsOpen] = createSignal(false);
   return (
     <nav class="bg-sky-800">
-      <NavMobile false />
-      <NavDesk false />
+      <NavMobile />
+      <NavDesk />
     </nav>
   );
 }

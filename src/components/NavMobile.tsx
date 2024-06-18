@@ -1,11 +1,24 @@
 import { setState, state } from "~/navstore";
 
 export default function NavMobile() {
+  function toggleSwitch() {
+    const track = document.querySelector(".toggle-track");
+    const thumb = document.querySelector(".toggle-thumb");
+
+    track.classList.toggle("checked");
+    thumb.classList.toggle("checked");
+    if (state.mobileMenuOpen.includes("hidden")) {
+      setState({ mobileMenuOpen: "max-md:content max-md:flex-col" });
+    } else {
+      setState({ mobileMenuOpen: "max-md:hidden max-md:flex-col" });
+    }
+  }
+
   return (
     <>
       <div>{state.mobileMenuOpen}</div>
       <div class="md:hidden">
-        <button
+        {/* <button
           class="text-white focus:outline-none"
           onClick={() =>
             setState({
@@ -27,7 +40,13 @@ export default function NavMobile() {
               d="M4 6h16M4 12h16M4 18h16"
             ></path>
           </svg>
-        </button>
+        </button> */}
+        <div
+          class="toggle-track relative h-8 w-14 cursor-pointer rounded-full"
+          onClick={() => toggleSwitch()}
+        >
+          <div class="toggle-thumb absolute h-6 w-6 translate-x-1 translate-y-1 transform rounded-full shadow-md"></div>
+        </div>
       </div>
     </>
   );
