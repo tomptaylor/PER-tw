@@ -3,7 +3,8 @@ import { setState, state } from "~/navstore";
 export default function NavMobile() {
   return (
     <>
-      <div class="lg:hidden">
+      <div>{state.mobileMenuOpen}</div>
+      <div class="md:hidden">
         <button
           class="text-white focus:outline-none"
           onClick={() =>
